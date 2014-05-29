@@ -1,9 +1,3 @@
-'''
-Created on 22/05/2014
-
-@author: joseprubiol
-'''
-
 import math
 
 # Abramowitz and Stegun 7.1.26 approximation

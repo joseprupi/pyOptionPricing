@@ -1,9 +1,3 @@
-'''
-Created on 22/05/2014
-
-@author: joseprubiol
-'''
-
 import math
 
 def trigeorgisTree(K,T,S,sig,r,N,PorC):

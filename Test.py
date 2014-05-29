@@ -1,32 +1,50 @@
-'''
-Created on 25/05/2014
-
-@author: joseprubiol
-'''
+import numpy as np
+import matplotlib.pyplot as plt
 
 from binomialTree import *
 from blackScholes import *
 
-preu = BS(0,10,10,2.5,0.02,0.3,'p')
-print 'Black Scholes put price',preu
+price = BS(0,10,10,2.5,0.02,0.3,'p')
+print 'Black Scholes put price',price
 
-preu = BS(0,10,10,2.5,0.02,0.3,'c')
-print 'Black Scholes call price',preu
+price = BS(0,10,10,2.5,0.02,0.3,'c')
+print 'Black Scholes call price',price
 
-preu = trigeorgisTree(10,2.5,10,0.3,0.02,1000,'p')
-print 'Trigeorgis put price',preu
+price = trigeorgisTree(10,2.5,10,0.3,0.02,1000,'p')
+print 'Trigeorgis put price',price
 
-preu = trigeorgisTree(10,2.5,10,0.3,0.02,1000,'c')
-print 'Trigeorgis call price',preu
+price = trigeorgisTree(10,2.5,10,0.3,0.02,1000,'c')
+print 'Trigeorgis call price',price
 
-preu = CRRTree(10,2.5,10,0.3,0.02,1000,'p')
-print 'Cox-Ross-Rubinstein put price',preu
+price = CRRTree(10,2.5,10,0.3,0.02,1000,'p')
+print 'Cox-Ross-Rubinstein put price',price
 
-preu = CRRTree(10,2.5,10,0.3,0.02,1000,'c')
-print 'Cox-Ross-Rubinstein call price',preu
+price = CRRTree(10,2.5,10,0.3,0.02,1000,'c')
+print 'Cox-Ross-Rubinstein call price',price
 
-preu = JRTree(10,2.5,10,0.3,0.02,1000,'p')
-print 'Jarrow-Rudd put price',preu
+price = JRTree(10,2.5,10,0.3,0.02,1000,'p')
+print 'Jarrow-Rudd put price',price
 
-preu = JRTree(10,2.5,10,0.3,0.02,1000,'c')
-print 'Jarrow-Rudd call price',preu
+price = JRTree(10,2.5,10,0.3,0.02,1000,'c')
+print 'Jarrow-Rudd call price',price
+
+runs = list(range(500,10500,500))
+trigeorgis = []
+CRR = []
+JR = []
+
+BSPrice = BS(0,10,10,2.5,0.02,0.3,'p')
+BS = [BSPrice,BSPrice]
+BSRuns = [500,10000]
+
+for i in runs:
+    trigeorgis.append(trigeorgisTree(10,2.5,10,0.3,0.02,i,'p'))
+    CRR.append(CRRTree(10,2.5,10,0.3,0.02,i,'p'))
+    JR.append(JRTree(10,2.5,10,0.3,0.02,i,'p'))
+
+plt.plot(BSRuns, BS, label='Black Scholes')
+plt.plot(runs, trigeorgis, label='Trigeorgis')
+plt.plot(runs, CRR, label='CRR')
+plt.plot(runs, JR, label='JR')
+plt.legend(loc='upper right')
+plt.show()
