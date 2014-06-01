@@ -33,14 +33,15 @@ trigeorgis = []
 CRR = []
 JR = []
 
-BSPrice = BS(0,10,10,2.5,0.02,0.3,'p')
+BSPrice = BS(0,10,10,2.5,0.02,0.3,'c')
 BS = [BSPrice,BSPrice]
 BSRuns = [500,10000]
 
 for i in runs:
-    trigeorgis.append(trigeorgisTree(10,2.5,10,0.3,0.02,i,'p'))
-    CRR.append(CRRTree(10,2.5,10,0.3,0.02,i,'p'))
-    JR.append(JRTree(10,2.5,10,0.3,0.02,i,'p'))
+    print i
+    trigeorgis.append(trigeorgisTree(10,2.5,10,0.3,0.02,i,'c'))
+    CRR.append(CRRTree(10,2.5,10,0.3,0.02,i,'c'))
+    JR.append(JRTree(10,2.5,10,0.3,0.02,i,'c'))
 
 plt.plot(BSRuns, BS, label='Black Scholes')
 plt.plot(runs, trigeorgis, label='Trigeorgis')
