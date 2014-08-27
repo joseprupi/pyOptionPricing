@@ -3,6 +3,6 @@ pyOptionPricing
 
 Python implementation of Black Scholes and binomial tree option pricing. 
 
-- Both price european put and call options with no dividends 
-- Black Scholes has erf function implemented (it is available since 3.2)
-- Binomial tree has implemented Trigeorgis, Cox-Ross-Rubinstein and Jarrow-Rudd
+- European put and call options with no dividends 
+- erf function is implemented at Black Scholes (it is available with python since 3.2)
+- Binomial tree pricing can be done with Trigeorgis, Cox-Ross-Rubinstein or Jarrow-Rudd
